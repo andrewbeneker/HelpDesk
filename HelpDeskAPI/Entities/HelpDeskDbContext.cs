@@ -34,6 +34,10 @@ public partial class HelpDeskDbContext : DbContext
 
             entity.Property(e => e.Description).HasMaxLength(60);
 
+            entity.HasOne(d => d.HelpAgent).WithMany(p => p.Bookmarks)
+                .HasForeignKey(d => d.HelpAgentId)
+                .HasConstraintName("FK__Bookmarks__HelpA__4D94879B");
+
             entity.HasOne(d => d.Ticket).WithMany(p => p.Bookmarks)
                 .HasForeignKey(d => d.TicketId)
                 .HasConstraintName("FK__Bookmarks__Ticke__4CA06362");

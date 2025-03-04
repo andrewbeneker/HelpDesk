@@ -9,5 +9,7 @@ public partial class HelpAgent
 
     public string Name { get; set; } = null!;
 
+    public virtual ICollection<Bookmark> Bookmarks { get; set; } = new List<Bookmark>();
+
     public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
 }

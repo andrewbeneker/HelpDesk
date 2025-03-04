@@ -77,7 +77,8 @@ namespace HelpDeskAPI.Controllers
             var BookmarkEntity = new Bookmark()
             {
                 TicketId = bookmarkDto.TicketId,
-                Description = bookmarkDto.Description
+                Description = bookmarkDto.Description,
+                HelpAgentId = bookmarkDto.HelpAgentId
             };
 
             _context.Bookmarks.Add(BookmarkEntity);
