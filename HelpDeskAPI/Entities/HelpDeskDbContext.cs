@@ -15,9 +15,11 @@ public partial class HelpDeskDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Bookmark> Bookmarks { get; set; }
+
     public virtual DbSet<Customer> Customers { get; set; }
 
-    public virtual DbSet<Resolution> Resolutions { get; set; }
+    public virtual DbSet<HelpAgent> HelpAgents { get; set; }
 
     public virtual DbSet<Ticket> Tickets { get; set; }
 
@@ -26,9 +28,20 @@ public partial class HelpDeskDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Bookmark>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Bookmark__3214EC0739040558");
+
+            entity.Property(e => e.Description).HasMaxLength(60);
+
+            entity.HasOne(d => d.Ticket).WithMany(p => p.Bookmarks)
+                .HasForeignKey(d => d.TicketId)
+                .HasConstraintName("FK__Bookmarks__Ticke__4CA06362");
+        });
+
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC075F397C00");
+            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC07099818E9");
 
             entity.ToTable("Customer");
 
@@ -38,31 +51,30 @@ public partial class HelpDeskDbContext : DbContext
             entity.Property(e => e.Phone).HasMaxLength(15);
         });
 
-        modelBuilder.Entity<Resolution>(entity =>
+        modelBuilder.Entity<HelpAgent>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Resoluti__3214EC07201F0BFA");
+            entity.HasKey(e => e.Id).HasName("PK__HelpAgen__3214EC07EF7C4291");
 
-            entity.ToTable("Resolution");
+            entity.ToTable("HelpAgent");
 
-            entity.Property(e => e.ResolutionType).HasMaxLength(25);
+            entity.Property(e => e.Name).HasMaxLength(30);
         });
 
         modelBuilder.Entity<Ticket>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Ticket__3214EC07EEA4BE25");
+            entity.HasKey(e => e.Id).HasName("PK__Ticket__3214EC0742C7E51F");
 
             entity.ToTable("Ticket");
 
-            entity.Property(e => e.ContactEmail).HasMaxLength(65);
             entity.Property(e => e.Title).HasMaxLength(40);
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Ticket__Customer__4222D4EF");
+                .HasConstraintName("FK__Ticket__Customer__48CFD27E");
 
-            entity.HasOne(d => d.Resolution).WithMany(p => p.Tickets)
-                .HasForeignKey(d => d.ResolutionId)
-                .HasConstraintName("FK__Ticket__Resoluti__4316F928");
+            entity.HasOne(d => d.ResolvedByNavigation).WithMany(p => p.Tickets)
+                .HasForeignKey(d => d.ResolvedBy)
+                .HasConstraintName("FK__Ticket__Resolved__49C3F6B7");
         });
 
         OnModelCreatingPartial(modelBuilder);
