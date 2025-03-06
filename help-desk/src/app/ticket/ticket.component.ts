@@ -8,15 +8,4 @@ import { ApiService } from '../api.service';
   templateUrl: './ticket.component.html',
   styleUrl: './ticket.component.css'
 })
-export class TicketComponent implements OnInit {
-
-  tickets: any[] = [];
-  constructor(private apiService: ApiService) {}
-  ngOnInit(): void {
-    this.apiService.getTickets().subscribe(
-      data => {
-        this.tickets = data as any[];
-      }
-    )
-  }
-}
+export class TicketComponent {}
