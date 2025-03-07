@@ -30,22 +30,22 @@ public partial class HelpDeskDbContext : DbContext
     {
         modelBuilder.Entity<Bookmark>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Bookmark__3214EC0739040558");
+            entity.HasKey(e => e.Id).HasName("PK__Bookmark__3214EC0763CAF770");
 
             entity.Property(e => e.Description).HasMaxLength(60);
 
             entity.HasOne(d => d.HelpAgent).WithMany(p => p.Bookmarks)
                 .HasForeignKey(d => d.HelpAgentId)
-                .HasConstraintName("FK__Bookmarks__HelpA__4D94879B");
+                .HasConstraintName("FK__Bookmarks__HelpA__5629CD9C");
 
             entity.HasOne(d => d.Ticket).WithMany(p => p.Bookmarks)
                 .HasForeignKey(d => d.TicketId)
-                .HasConstraintName("FK__Bookmarks__Ticke__4CA06362");
+                .HasConstraintName("FK__Bookmarks__Ticke__5535A963");
         });
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC07099818E9");
+            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC074A9C7B8A");
 
             entity.ToTable("Customer");
 
@@ -57,7 +57,7 @@ public partial class HelpDeskDbContext : DbContext
 
         modelBuilder.Entity<HelpAgent>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__HelpAgen__3214EC07EF7C4291");
+            entity.HasKey(e => e.Id).HasName("PK__HelpAgen__3214EC071514E9E9");
 
             entity.ToTable("HelpAgent");
 
@@ -66,7 +66,7 @@ public partial class HelpDeskDbContext : DbContext
 
         modelBuilder.Entity<Ticket>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Ticket__3214EC0742C7E51F");
+            entity.HasKey(e => e.Id).HasName("PK__Ticket__3214EC07431A979C");
 
             entity.ToTable("Ticket");
 
@@ -74,11 +74,11 @@ public partial class HelpDeskDbContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Ticket__Customer__48CFD27E");
+                .HasConstraintName("FK__Ticket__Customer__5165187F");
 
             entity.HasOne(d => d.ResolvedByNavigation).WithMany(p => p.Tickets)
                 .HasForeignKey(d => d.ResolvedBy)
-                .HasConstraintName("FK__Ticket__Resolved__49C3F6B7");
+                .HasConstraintName("FK__Ticket__Resolved__52593CB8");
         });
 
         OnModelCreatingPartial(modelBuilder);

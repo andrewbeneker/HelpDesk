@@ -25,7 +25,8 @@ namespace HelpDeskAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetTickets()
         {
-            List<Ticket> tickets = _context.Tickets.ToList();
+            
+           List<Ticket> tickets = await _context.Tickets.ToListAsync();
             return Ok(tickets);
         }
 
