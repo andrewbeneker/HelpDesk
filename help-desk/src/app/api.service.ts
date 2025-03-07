@@ -22,9 +22,9 @@ export class ApiService {
   }
 
   getBookmarks() {
-    return this.http.get(`${this.baseUrl}/bookmark`);
+    return this.http.get(`${this.baseUrl}/Bookmarks`);
   }
   createBookmark(bookmark: {TicketId: number, Description: string}) {
-    return this.http.post(`${this.baseUrl}/bookmark`, bookmark);
+    return this.http.post(`${this.baseUrl}/Bookmarks`, bookmark);
   }
 }

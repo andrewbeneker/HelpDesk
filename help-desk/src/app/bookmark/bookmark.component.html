@@ -1,1 +1,6 @@
-<p>bookmark works!</p>
+<h2>Bookmarks</h2>
+<ul>
+  <li *ngFor="let bookmark of bookmarks">
+    {{ bookmark.Id }} - {{bookmark.description}}
+  </li>
+</ul>
