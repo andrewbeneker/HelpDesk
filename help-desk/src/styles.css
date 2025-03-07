@@ -65,7 +65,7 @@ html {
 }
 
 body {
-  background: var(--backgroundColor);
+    background: var(--backgroundColor);
   font-family: var(--bodyFont);
   font-weight: 400;
   line-height: 1.75;
@@ -75,6 +75,7 @@ body {
 p {
   margin-top: 0;
   margin-bottom: 0 rem;
+  margin-top: 0;
   max-width: 40em;
   line-height: 3px;
 }
@@ -104,6 +105,7 @@ h1 {
   background: var(--primary-300);
   border-radius: var(--borderRadius);
   display: flex;
+  margin-bottom: 0px;
   
 }
 
@@ -112,10 +114,18 @@ h2 {
   margin-top: 0;
   padding-left: 5px;
   display: flex;
-  background: var(--primary-200);
+  
 border-style: solid;
 border:#3c3799;
 border-radius: var(--borderRadius);
+margin: 0px;
+
+}
+
+h2 span {
+    background: var(--primary-200);
+    padding: 15px;
+    border-radius: var(--borderRadius);
 }
 
 h3 {
@@ -148,10 +158,12 @@ ul {
 }
 
 li {
-    padding: 15px;
+    padding: 20px;
   border: #645cff;
   border-style:ridge;
   border-radius: var(--borderRadius);
+  line-height: 0px;
+  
 
 }
 
@@ -291,10 +303,12 @@ Navbar
 
 .navbar {
     display: flex;
-  align-items: center;
+    align-items: center;
+    align-content: stretch;
   justify-content: left;
   margin: 0px;
-  background: var(--primary-400)
+  line-height: 0px;
+  
   
 }
 .nav-center {
