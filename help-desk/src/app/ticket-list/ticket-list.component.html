@@ -1,6 +1,9 @@
 <h2>Tickets</h2>
 <ul>
   <li *ngFor="let ticket of tickets">
-    {{ ticket.Id }} - {{ticket.Title}} - {{ticket.Body}} -
+    <p>Ticket ID: {{ ticket.id }}</p>
+   <p> Title: {{ticket.title}}</p>
+    <p>Body: {{ticket.body}}</p>
+    <br>
   </li>
 </ul>
