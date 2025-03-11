@@ -1,11 +1,17 @@
 <h1>Motor Vehicle Problem HelpDesk 3000</h1>
 <div>
 <nav class="navbar">
+  <button class="btn"><a routerLink="/tickets">Create Ticket</a></button>
     <button class="btn"><a routerLink="/ticket-list">View Tickets</a></button>
-  <button class="btn"><a routerLink="/bookmark">View Bookmarks</a></button>
+  <button class="btn"><a routerLink="/bookmarks">View Bookmarks</a></button>
 </nav>
 </div>
-<app-ticket-list></app-ticket-list>
-<app-bookmark></app-bookmark>
+
+<router-outlet name="ticketlist"></router-outlet>
+<router-outlet name="bookmarks"></router-outlet>
+<router-outlet name="tickets"></router-outlet>
+<router-outlet name="displayticket"></router-outlet>
+
+
 
 

@@ -13,11 +13,15 @@ export class ApiService {
   getTickets() {
     return this.http.get(`${this.baseUrl}/Tickets`);
   }
+  getTicketById(id: number){
+    return this.http.get(`${this.baseUrl}/Tickets/{id}`);
+  }
+
   updateTicket(id: number, resolvedBy: number ) {
     return this.http.put(`${this.baseUrl}/Tickets/${id}`, resolvedBy);
   }
 
-  createTicket(ticket: { Id: number, CustomerId: number, Title: string, Body: string, TicketOpen: boolean, ResolvedBy: number}) {
+  createTicket(ticket: {CustomerId: number, Title: string, Body: string, TicketOpen: boolean}) {
     return this.http.post(`${this.baseUrl}/Tickets`, ticket);
   }
 

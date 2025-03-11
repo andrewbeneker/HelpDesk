@@ -1,10 +1,28 @@
 <h2><span>Tickets</span></h2>
+<form>
+<label for="id">Enter Ticket ID: </label>
+<input type="number" id="id" [(ngModel)]="id">
+<button class="btn" (click)="getTicketById()"><a>Find Ticket</a></button>
+</form>
 <ul>
-  <li *ngFor="let ticket of tickets">
-    <p>Ticket ID: {{ ticket.id }}</p>
+  <li *ngFor="let ticket of tickets" let i = "index">
+    <button class="btn">Ticket ID: {{ ticket.id }}</button>
+    
    <p> ------------------------------------------</p>
    <p> Subject: {{ticket.title}}</p>
     <p>Message: {{ticket.body}}</p>
-    <br>
+   
+    
   </li>
+  <div *ngIf="ticketFound">
+
+    <form >
+      <label for="resolvedBy">Help Agent ID: </label>
+      <input type="number" id="resolvedBy" [(ngModel)]="resolvedBy" name="resolvedBy" required>
+    
+      <button class="btn" (click)="updateTicket()">Resolve Ticket</button>
+    </form>
+
+  </div>
 </ul>
+
