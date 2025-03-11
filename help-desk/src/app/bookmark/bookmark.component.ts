@@ -11,13 +11,13 @@ import { ApiService } from '../api.service';
 export class BookmarkComponent implements OnInit {
   bookmarks: any[] = [];
 
-    constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
-    ngOnInit(): void {
-      this.apiService.getBookmarks().subscribe(
-        data => {
-          this.bookmarks = data as any[];
-        }
-      )
-    }
+  ngOnInit(): void {
+    this.apiService.getBookmarks().subscribe(
+      data => {
+        this.bookmarks = data as any[];
+      }
+    )
+  }
 }

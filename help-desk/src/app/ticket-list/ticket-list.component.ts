@@ -13,10 +13,10 @@ import { DisplayTicketComponent } from '../display-ticket/display-ticket.compone
   styleUrl: './ticket-list.component.css'
 })
 export class TicketListComponent implements OnInit {
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   tickets: any[] = [];
-  
+
   ngOnInit(): void {
     this.apiService.getTickets().subscribe(
       data => {
@@ -28,21 +28,27 @@ export class TicketListComponent implements OnInit {
 
   id!: number;
   resolvedBy!: number;
-  
-  
+
+
   updateTicket(): void {
     this.apiService.updateTicket(this.id, this.resolvedBy).subscribe(() => {
       alert('Ticket resolved');
     });
-    
+
   }
 
-ticketFound = false;
-getTicketById(): boolean {
-  
-  this.apiService.getTicketById(this.id);
-  this.ticketFound = true;
-  return this.ticketFound
-}
+  getTicketById(): void {
+    this.apiService.getTicketById(this.id).subscribe();
+  }
+
+
+
+  ticketFound = false;
+  getTicketBoolean(): boolean {
+
+    this.apiService.getTicketById(this.id);
+    this.ticketFound = true;
+    return this.ticketFound
+  }
 
 }

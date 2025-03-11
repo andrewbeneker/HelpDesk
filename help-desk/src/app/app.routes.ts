@@ -5,9 +5,9 @@ import { BookmarkComponent } from './bookmark/bookmark.component';
 import { DisplayTicketComponent } from './display-ticket/display-ticket.component';
 
 export const routes: Routes = [
-    {path: 'tickets', component: TicketComponent, outlet: 'tickets'},
-    {path: 'ticket-list', component: TicketListComponent, outlet: 'ticketlist'},
-    {path: 'bookmarks', component: BookmarkComponent, outlet: 'bookmark'},
-    {path: 'display-ticket/:id', component: DisplayTicketComponent, outlet: 'displayticket' }
+    {path: 'ticket', component: TicketComponent},
+    {path: 'ticket-list', component: TicketListComponent },
+    {path: 'bookmark', component: BookmarkComponent},
+    {path: 'display-ticket', component: DisplayTicketComponent }
 
 ];

@@ -1,3 +1,12 @@
-<h2>Ticket Display</h2>>
+<h2>Look Up Ticket</h2>
 
+<br>
 
+<p>Please enter the ID for the ticket you would like to view:</p>
+
+<form>
+    <label for="id">Enter Ticket ID: </label>
+    <input type="number" id="id" [(ngModel)]="id">
+    <button class="btn" (click)="getTicketById(id)"><a>Find Ticket</a></button>
+
+</form>
