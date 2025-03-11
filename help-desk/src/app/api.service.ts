@@ -14,7 +14,7 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/Tickets`);
   }
   getTicketById(id: number) {
-    return this.http.get(`${this.baseUrl}/Tickets/{id}`);
+    return this.http.get(`${this.baseUrl}/Tickets/${id}`);
   }
 
   updateTicket(id: number, resolvedBy: number) {

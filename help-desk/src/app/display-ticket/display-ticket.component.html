@@ -4,9 +4,39 @@
 
 <p>Please enter the ID for the ticket you would like to view:</p>
 
-<form>
+<form #myForm="ngForm" (ngSubmit)="getTicketById(myForm.value.id)">
     <label for="id">Enter Ticket ID: </label>
-    <input type="number" id="id" [(ngModel)]="id">
-    <button class="btn" (click)="getTicketById(id)"><a>Find Ticket</a></button>
+    <input type="number" id="id" name="id" [(ngModel)]="id" required>
+    <button class="btn" type="submit"><a>Find Ticket</a></button>
 
 </form>
+
+<ul>
+    <li *ngFor="let ticket of tickets">
+        <button class="btn">Ticket ID: {{ ticket.id }}</button>
+
+        <p> ------------------------------------------</p>
+        <p> Subject: {{ticket.title}}</p>
+        <p>Message: {{ticket.body}}</p>
+
+        <form>
+            <label for="resolvedBy">Help Agent ID: </label>
+            <input type="number" id="resolvedBy" [(ngModel)]="resolvedBy" name="resolvedBy" required>
+
+            <button class="btn" (click)="updateTicket()">Resolve Ticket</button>
+        </form>
+        <form>
+            <label for="ticketId">Ticket Id: </label>
+            <input type="number" id="ticketId" [(ngModel)]="ticketId" name="ticketId" required>
+
+            <label for="description">Description </label>
+            <input type="string" id="description" [(ngModel)]="description" name="description" required>
+
+            <button class="btn" (click)="createBookmark()">Create Bookmark!</button>
+        </form>
+    </li>
+
+
+
+
+</ul>
