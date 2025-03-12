@@ -11,33 +11,42 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './display-ticket.component.html',
   styleUrl: './display-ticket.component.css'
 })
-export class DisplayTicketComponent implements OnInit {
+export class DisplayTicketComponent {
 
   constructor(private apiService: ApiService) { }
 
   id!: number;
-  tickets: any[] = [];
+  ticket: any;
   resolvedBy!: number;
   ticketId!: number;
   description!: string;
 
   getTicketById(id: number): void {
-    this.apiService.getTicketById(this.id).subscribe();
+    console.log(id)
+    this.apiService.getTicketById(this.id).subscribe(
+      data => {
+        this.ticket = data as any;
+      }
+    )
     
   }
 
-  ngOnInit(): void {
-    this.apiService.getTicketById(this.id).subscribe(
-      data => {
-        this.tickets = data as any[];
-      }
-    )
+  resolveTicket(id: number){
+    this.ticket.id.ticketOpen = false;
+
   }
 
-  updateTicket(): void {
-    this.apiService.updateTicket(this.id, this.resolvedBy).subscribe(() => {
-      alert('Ticket resolved');
-    });
+  update(): void {
+    this.ticket = null;
+    this.apiService.updateTicket(this.id, this.resolvedBy).subscribe();
+    this.ticket.ticketOpen = false;
+  }
+
+
+  updateTicket(id: number, resolvedBy: number): void {
+    console.log(id)
+    this.apiService.updateTicket(this.id, this.resolvedBy).subscribe();
+    this.ticket.ticketOpen = false;
 
   }
 

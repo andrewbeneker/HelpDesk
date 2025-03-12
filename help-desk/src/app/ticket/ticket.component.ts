@@ -28,6 +28,7 @@ export class TicketComponent {
       }
    ).subscribe(() => {
       alert('Ticket created successfully!');
+      
     });
     
   }

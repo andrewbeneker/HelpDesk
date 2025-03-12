@@ -11,32 +11,34 @@
 
 </form>
 
-<ul>
-    <li *ngFor="let ticket of tickets">
-        <button class="btn">Ticket ID: {{ ticket.id }}</button>
 
-        <p> ------------------------------------------</p>
+<div *ngIf="ticket">
+    
+    
+        <br>
+        <button class="btn">Ticket ID: {{ ticket.id }}</button>
+        
+        <hr>
+        <p></p>
+        <p>Customer ID: {{ticket.customerId}}</p>
         <p> Subject: {{ticket.title}}</p>
         <p>Message: {{ticket.body}}</p>
-
+        
+        
+        
+        
+        
+        
+        <button class="btn" (click)="update()">Resolve Ticket</button>
+        <hr>
         <form>
-            <label for="resolvedBy">Help Agent ID: </label>
-            <input type="number" id="resolvedBy" [(ngModel)]="resolvedBy" name="resolvedBy" required>
-
-            <button class="btn" (click)="updateTicket()">Resolve Ticket</button>
-        </form>
-        <form>
+            <button class="btn" (click)="createBookmark()">Create Bookmark!</button>
             <label for="ticketId">Ticket Id: </label>
             <input type="number" id="ticketId" [(ngModel)]="ticketId" name="ticketId" required>
-
+        
             <label for="description">Description </label>
             <input type="string" id="description" [(ngModel)]="description" name="description" required>
-
-            <button class="btn" (click)="createBookmark()">Create Bookmark!</button>
+        
+            
         </form>
-    </li>
-
-
-
-
-</ul>
+        </div>

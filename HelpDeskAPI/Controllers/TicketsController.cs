@@ -47,13 +47,11 @@ namespace HelpDeskAPI.Controllers
         // PUT: api/Tickets/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTicket(int id, int helpAgentId)
+        public async Task<IActionResult> PutTicket(int id)
         {
             var ticketEntity = _context.Tickets.Where(t => t.Id == id).FirstOrDefault();
-            ticketEntity.ResolvedBy = helpAgentId;
             ticketEntity.TicketOpen = false;
-            var agentEntity = _context.HelpAgents.Where(a => a.Id == helpAgentId).FirstOrDefault();
-            return Ok($"This ticket was resolved by agent {agentEntity.Name}");
+            return Ok($"This ticket was resolved");
         }
 
         // POST: api/Tickets
