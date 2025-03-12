@@ -8,6 +8,7 @@
     <label for="id">Enter Ticket ID: </label>
     <input type="number" id="id" name="id" [(ngModel)]="id" required>
     <button class="btn" type="submit"><a>Find Ticket</a></button>
+    <button class="btn" type="clear" (click)="myForm.reset()">Clear</button>
 
 </form>
 
