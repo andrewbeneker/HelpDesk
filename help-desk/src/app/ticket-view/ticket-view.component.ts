@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-ticket-view',
-  imports: [CommonModule, RouterLink, RouterModule, FormsModule, RouterOutlet ],
+  imports: [CommonModule, RouterLink, RouterModule, FormsModule, RouterOutlet],
   templateUrl: './ticket-view.component.html',
   styleUrl: './ticket-view.component.css'
 })
@@ -22,17 +22,16 @@ export class TicketViewComponent implements OnInit {
   description!: string;
 
   ngOnInit(): void {
-   this.route.params.subscribe(params => {
-    this.ticketId = params['id'];
-    console.log(this.ticketId)
-    this.apiService.getTicketById(this.ticketId).subscribe(
-      data => {
-        this.ticket = data as any;
-      }
+    this.route.params.subscribe(params => {
+      this.ticketId = params['id'];
+      console.log(this.ticketId)
+      this.apiService.getTicketById(this.ticketId).subscribe(
+        data => {
+          this.ticket = data as any;
+        }
+      )
+    }
     )
-   }
-
-   )
   }
 
   getTicketById(id: number): void {
@@ -42,9 +41,7 @@ export class TicketViewComponent implements OnInit {
         this.ticket = data as any;
       }
     )
-
   }
-
 
   update(): void {
     this.ticket = null;
@@ -62,6 +59,5 @@ export class TicketViewComponent implements OnInit {
     ).subscribe(() => {
       alert('Bookmark created successfully!');
     });
-
   }
 }

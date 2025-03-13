@@ -1,18 +1,17 @@
 <h2>Create Ticket</h2>
 <p></p>
 <form #myForm="ngForm" (ngSubmit)="createTicket()">
-    
+
     <label for="CustomerId">CustomerId: </label>
     <input type="number" id="CustomerId" [(ngModel)]="CustomerId" name="CustomerId " required>
-  
-    <label for="Title">  Title: </label>
+
+    <label for="Title"> Title: </label>
     <input type="string" id="Title" [(ngModel)]="Title" name="Title " required>
 
-    <label for="Body">  Body: </label>
+    <label for="Body"> Body: </label>
     <input type="string" id="Body" [(ngModel)]="Body" name="Body " required>
-<br>
+    <br>
     <button class="btn" type="submit">Create Ticket</button>
     <button class="btn" type="clear" (click)="myForm.reset()">Clear Fields</button>
 
 </form>
-

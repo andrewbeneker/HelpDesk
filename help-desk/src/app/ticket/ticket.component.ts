@@ -18,6 +18,7 @@ export class TicketComponent {
   TicketOpen!: boolean;
 
   constructor(private apiService: ApiService) { }
+  
   createTicket(): void {
     this.apiService.createTicket(
       {
@@ -30,8 +31,5 @@ export class TicketComponent {
       alert('Ticket created successfully!');
 
     });
-
   }
-
-
 }

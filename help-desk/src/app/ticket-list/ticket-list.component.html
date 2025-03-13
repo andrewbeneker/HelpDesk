@@ -1,5 +1,19 @@
 <h2>Tickets</h2>
 
+<ul>
+  
+  <li *ngFor="let ticket of tickets" let i="index">
+    <button class="btn" [routerLink]="['/ticket-view', ticket.id]">Ticket ID: {{ ticket.id }}</button>
+    <hr>
+    <br>
+    <p></p>
+    <p> Subject: {{ticket.title}}</p>
+    <p>Message: {{ticket.body}}</p>
+
+  </li>
+
+</ul>
+
 <!--
 <form>
   <label for="id">Enter Ticket ID: </label>
@@ -9,19 +23,7 @@
 
 -->
 
-<ul>
-  <li *ngFor="let ticket of tickets" let i="index">
-    <button class="btn" [routerLink]="['/ticket-view', ticket.id]">Ticket ID: {{ ticket.id }}</button>
-    <hr>
-    <br>
-    <p></p>
-    <p> Subject: {{ticket.title}}</p>
-    <p>Message: {{ticket.body}}</p>
-
-
-  </li>
-
-  <!--
+<!--
   <div *ngIf="ticketFound">
 
     <form>
@@ -34,4 +36,3 @@
   </div>
 
   -->
-</ul>

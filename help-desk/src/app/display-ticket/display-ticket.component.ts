@@ -28,12 +28,10 @@ export class DisplayTicketComponent {
         this.ticket = data as any;
       }
     )
-
   }
 
   resolveTicket(id: number) {
     this.ticket.id.ticketOpen = false;
-
   }
 
   update(): void {
@@ -42,12 +40,10 @@ export class DisplayTicketComponent {
     this.ticket.ticketOpen = false;
   }
 
-
   updateTicket(id: number, resolvedBy: number): void {
     console.log(id)
     this.apiService.updateTicket(this.id, this.resolvedBy).subscribe();
     this.ticket.ticketOpen = false;
-
   }
 
   createBookmark(): void {
@@ -59,7 +55,6 @@ export class DisplayTicketComponent {
     ).subscribe(() => {
       alert('Bookmark created successfully!');
     });
-
   }
 
   ticketFound = false;
@@ -69,5 +64,4 @@ export class DisplayTicketComponent {
     this.ticketFound = true;
     return this.ticketFound
   }
-
 }

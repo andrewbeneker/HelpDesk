@@ -25,23 +25,18 @@ export class TicketListComponent implements OnInit {
     )
   }
 
-
   id!: number;
   resolvedBy!: number;
-
 
   updateTicket(): void {
     this.apiService.updateTicket(this.id, this.resolvedBy).subscribe(() => {
       alert('Ticket resolved');
     });
-
   }
 
   getTicketById(): void {
     this.apiService.getTicketById(this.id).subscribe();
   }
-
-
 
   ticketFound = false;
   getTicketBoolean(): boolean {
@@ -50,5 +45,4 @@ export class TicketListComponent implements OnInit {
     this.ticketFound = true;
     return this.ticketFound
   }
-
 }
