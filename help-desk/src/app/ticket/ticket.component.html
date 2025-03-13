@@ -1,4 +1,5 @@
 <h2>Create Ticket</h2>
+<p></p>
 <form #myForm="ngForm" (ngSubmit)="createTicket()">
     
     <label for="CustomerId">CustomerId: </label>
@@ -9,7 +10,7 @@
 
     <label for="Body">  Body: </label>
     <input type="string" id="Body" [(ngModel)]="Body" name="Body " required>
-
+<br>
     <button class="btn" type="submit">Create Ticket</button>
     <button class="btn" type="clear" (click)="myForm.reset()">Clear Fields</button>
 

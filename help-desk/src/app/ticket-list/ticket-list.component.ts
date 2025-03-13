@@ -8,7 +8,7 @@ import { DisplayTicketComponent } from '../display-ticket/display-ticket.compone
 
 @Component({
   selector: 'app-ticket-list',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './ticket-list.component.html',
   styleUrl: './ticket-list.component.css'
 })

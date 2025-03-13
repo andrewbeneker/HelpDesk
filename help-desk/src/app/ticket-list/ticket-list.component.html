@@ -11,8 +11,7 @@
 
 <ul>
   <li *ngFor="let ticket of tickets" let i="index">
-    <button class="btn">Ticket ID: {{ ticket.id }}</button>
-
+    <button class="btn" [routerLink]="['/ticket-view', ticket.id]">Ticket ID: {{ ticket.id }}</button>
     <hr>
     <br>
     <p></p>

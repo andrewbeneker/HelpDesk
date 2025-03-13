@@ -28,10 +28,10 @@ export class DisplayTicketComponent {
         this.ticket = data as any;
       }
     )
-    
+
   }
 
-  resolveTicket(id: number){
+  resolveTicket(id: number) {
     this.ticket.id.ticketOpen = false;
 
   }
@@ -56,10 +56,10 @@ export class DisplayTicketComponent {
         TicketId: this.ticketId,
         Description: this.description
       }
-   ).subscribe(() => {
+    ).subscribe(() => {
       alert('Bookmark created successfully!');
     });
-    
+
   }
 
   ticketFound = false;

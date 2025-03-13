@@ -16,7 +16,7 @@ export class TicketComponent {
   Title!: string;
   Body!: string;
   TicketOpen!: boolean;
-  
+
   constructor(private apiService: ApiService) { }
   createTicket(): void {
     this.apiService.createTicket(
@@ -26,11 +26,11 @@ export class TicketComponent {
         Body: this.Body,
         TicketOpen: true,
       }
-   ).subscribe(() => {
+    ).subscribe(() => {
       alert('Ticket created successfully!');
-      
+
     });
-    
+
   }
 
 

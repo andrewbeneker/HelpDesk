@@ -2,7 +2,7 @@
 <ul>
   <li *ngFor="let bookmark of bookmarks">
     <p> Ticket ID: {{ bookmark.ticketId }}</p>
-      <p>Ticket type: {{bookmark.description}} </p>
-      <button class="btn">View ticket</button>
+    <p>Ticket type: {{bookmark.description}} </p>
+    <button class="btn" [routerLink]="['/ticket-view', bookmark.ticketId]">View ticket</button>
   </li>
 </ul>

@@ -87,6 +87,7 @@ p {
 input {
     border-radius: var(--borderRadius);
     letter-spacing: var(--letterSpacing);
+    
 }
 
 h1,
@@ -110,7 +111,8 @@ h1 {
   border-radius: var(--borderRadius);
   display: flex;
   margin-bottom: 0px;
-  background-image: linear-gradient(to bottom right, var(--primary-100), var(--primary-600))
+  background-image: linear-gradient(to bottom right, var(--primary-100), var(--primary-600));
+  padding-left: 10px;
   
 }
 

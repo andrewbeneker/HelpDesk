@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterModule } from '@angular/router';
 import { TicketComponent } from "./ticket/ticket.component";
 import { TicketListComponent } from "./ticket-list/ticket-list.component";
 import { BookmarkComponent } from "./bookmark/bookmark.component";

@@ -1,0 +1,27 @@
+<h2>Ticket View</h2>
+
+<div *ngIf="ticketId">
+
+
+    <br>
+    <button class="btn">Ticket ID: {{ ticketId }}</button>
+
+    <hr>
+    <p></p>
+    <p>Customer ID: {{ticket.customerId}}</p>
+    <p> Subject: {{ticket.title}}</p>
+    <p>Message: {{ticket.body}}</p>
+
+    <button class="btn" (click)="update()">Resolve Ticket</button>
+    <hr>
+    <form #bookmarkForm="ngForm">
+        <button class="btn" (click)="createBookmark()">Create Bookmark!</button>
+        <label for="ticketId">Ticket Id: </label>
+        <input type="number" id="ticketId" [(ngModel)]="ticketId" name="ticketId" required>
+
+        <label for="description">Description </label>
+        <input type="string" id="description" [(ngModel)]="description" name="description" required>
+        <button class="btn" type="clear" (click)="bookmarkForm.reset()">Clear Fields</button>
+
+    </form>
+</div>
