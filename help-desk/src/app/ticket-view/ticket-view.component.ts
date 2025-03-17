@@ -17,9 +17,11 @@ export class TicketViewComponent implements OnInit {
   constructor(private apiService: ApiService, private route: ActivatedRoute) { }
   id!: number;
   ticket: any;
+  customer: any;
   resolvedBy!: number;
   ticketId!: number;
   description!: string;
+  customerId!: number;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -28,6 +30,11 @@ export class TicketViewComponent implements OnInit {
       this.apiService.getTicketById(this.ticketId).subscribe(
         data => {
           this.ticket = data as any;
+        }
+      )
+      this.apiService.getCustomerById(this.customerId).subscribe(
+        data => {
+          this.customer = data as any;
         }
       )
     }
@@ -39,6 +46,15 @@ export class TicketViewComponent implements OnInit {
     this.apiService.getTicketById(this.id).subscribe(
       data => {
         this.ticket = data as any;
+      }
+    )
+  }
+
+  getCustomerById(customerId: number): void {
+    console.log(customerId)
+    this.apiService.getCustomerById(this.customerId).subscribe(
+      data => {
+        this.customer = data as any;
       }
     )
   }

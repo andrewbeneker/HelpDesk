@@ -31,4 +31,15 @@ export class ApiService {
   createBookmark(bookmark: { TicketId: number, Description: string }) {
     return this.http.post(`${this.baseUrl}/Bookmarks`, bookmark);
   }
+
+  getCustomers() {
+    return this.http.get(`${this.baseUrl}/Customers`);
+  }
+  getCustomerById(id: number) {
+    return this.http.get(`${this.baseUrl}/Customers/${id}`);
+  }
+
+  addCustomer(customer: any): any {
+    return this.http.post(`${this.baseUrl}/Customers`, customer);
+  }
 }
